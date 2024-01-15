@@ -104,7 +104,7 @@ export const MetaMaskContextProvider = ({ children }: PropsWithChildren) => {
     }
     setIsConnecting(false)
   }
-
+  
   return (
     <MetaMaskContext.Provider
       value={{
@@ -118,7 +118,13 @@ export const MetaMaskContextProvider = ({ children }: PropsWithChildren) => {
         
       }}
     >
+    {wallet!==disconnectedState?<button onClick={()=>{
+            setWallet(disconnectedState)
+          }}>
+            Disconnect
+          </button>:null}
       {children}
+      
     </MetaMaskContext.Provider>
   )
 }
